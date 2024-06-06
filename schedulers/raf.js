@@ -7,7 +7,7 @@ export default function (ctx, tick) {
       cancelAnimationFrame(ctx.requestId);
     },
     doTick: (elapsed) => {
-      if (elapsed < ctx.frameDuration) {
+      if (elapsed < ctx.frameDuration * 0.9) {
         ctx.requestId = requestAnimationFrame(tick);
         return false;
       }
