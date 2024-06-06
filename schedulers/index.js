@@ -10,7 +10,7 @@ let tickCallback;
 let lastTime;
 let methodContext = {};
 let methods = {
-  raf: methodRaf(methodContext, tick),
+  requestAnimationFrame: methodRaf(methodContext, tick),
   setInterval: methodSetInterval(methodContext, tick),
   setTimeout: methodSetTimeout(methodContext, tick),
   setTimeoutRebalanced: methodSetTimeoutRebalanced(methodContext, tick),
@@ -24,7 +24,7 @@ let methods = {
     tickCallback: () => {},
   },
 };
-let currentMethodId = "raf";
+let currentMethodId = "requestAnimationFrame";
 function getCurrentMethod(methodId) {
   if (methodId) {
     currentMethodId = methodId;

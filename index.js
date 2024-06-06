@@ -69,7 +69,7 @@ for (let i = 0; i < methods.length; i++) {
   option.text = methods[i];
   methodSelector.appendChild(option);
 }
-methodSelector.value = "raf";
+methodSelector.value = methods[0];
 
 let curUpdate = 0;
 const minDelayElement = document.getElementById("minDelay");
