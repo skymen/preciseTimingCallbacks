@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frame Timing Accuracy</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+      #chartContainer {
+        width: 600px;
+        height: 400px;
+      }
+      .metrics {
+        margin-top: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        justify-content: space-around;
+        width: 600px;
+        padding-bottom: 20px;
+      "
+    >
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <label for="methodSelector">Schedule Method</label>
+        <select id="methodSelector"></select>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <label for="updateGraphEvery">Update Graph Rate</label>
+        <input type="range" id="updateGraphEvery" min="1" max="60" value="2" />
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <label for="targetFPS">Target FPS</label>
+        <input type="number" id="targetFPS" min="1" max="999" value="60" />
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <label for="useWorker">Use Worker</label>
+        <input type="checkbox" id="useWorker" checked />
+      </div>
+    </div>
+    <div id="chartContainer">
+      <canvas id="timingChart"></canvas>
+    </div>
+
+    <div class="metrics">
+      <div>
+        <p>Min Delay: <span id="minDelay">0</span> ms</p>
+        <p>Max Delay: <span id="maxDelay">0</span> ms</p>
+        <p>Avg Delay: <span id="avgDelay">0</span> ms</p>
+        <p>Last Delay: <span id="lastDelay">0</span> ms</p>
+      </div>
+
+      <div>
+        <p>Min FPS: <span id="minFps">0</span></p>
+        <p>Max FPS: <span id="maxFps">0</span></p>
+        <p>Avg FPS: <span id="avgFps">0</span></p>
+        <p>Last FPS: <span id="lastFps">0</span></p>
+      </div>
+    </div>
+    <a href="https://github.com/skymen/preciseTimingCallbacks"> Source Code </a>
+
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
